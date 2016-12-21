@@ -30,7 +30,7 @@ db.select(1, function(err,res) {
 		d = JSON.parse(d);
 		//console.log(d);
 		//console.log(driver_id);
-		console.log(mysql.format('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, parseFloat(d.latitude), parseFloat(d.longitude), d.timestamp]));
+		//console.log(mysql.format('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, parseFloat(d.latitude), parseFloat(d.longitude), d.timestamp]));
 		connection.query('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, parseFloat(d.latitude), parseFloat(d.longitude), d.timestamp], function(err) {
 			if(err) console.error(err);
 		});
