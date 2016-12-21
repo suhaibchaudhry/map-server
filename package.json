@@ -9,6 +9,8 @@
   "author": "Asad Hasan",
   "license": "MIT",
   "dependencies": {
+    "deasync": "^0.1.9",
+    "lodash": "^4.17.2",
     "mysql": "^2.12.0",
     "redis": "^2.6.3"
   }

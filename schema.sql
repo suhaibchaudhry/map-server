@@ -40,5 +40,5 @@ CREATE TABLE IF NOT EXISTS `drivers` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 /* Query Samples */
-/*INSERT INTO `drivergeo`.`drivers` (`driver_id`, `latlon`, `timestamp`) VALUES ('1', GeomFromText('POINT(13.02169401981124 77.64023683648082)',0), 1);*/
+/*INSERT INTO `drivergeo`.`drivers_redis` (`driver_id`, `latlon`, `timestamp`) VALUES ('1', GeomFromText('POINT(13.02169401981124 77.64023683648082)',0), 1);*/
 /*SELECT X(latlon), Y(latlon) FROM `drivers`*/
