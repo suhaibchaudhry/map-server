@@ -30,7 +30,8 @@ db.select(1, function(err,res) {
 		d = JSON.parse(d);
 		//console.log(d);
 		//console.log(driver_id);
-		connection.query('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, d.latitude, d.longitude, d.timestamp], function(err) {
+		console.log(mysql.format('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, parseFloat(d.latitude), parseFloat(d.longitude), d.timestamp]));
+		connection.query('REPLACE INTO drivers_redis (driver_id, latlon, timestamp) VALUES (?, GeomFromText(\'POINT(? ?)\'), ?)', [driver_id, parseFloat(d.latitude), parseFloat(d.longitude), d.timestamp], function(err) {
 			if(err) console.error(err);
 		});
 	});
@@ -39,3 +40,4 @@ db.select(1, function(err,res) {
 });
 require('deasync').loopWhile(() => {return busy;});
 connection.end();
+db.quit();
