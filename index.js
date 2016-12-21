@@ -1,5 +1,11 @@
 //Please dump schema.sql on top of ruby generated schema
 var mysql      = require('mysql');
+var pidlock = require('pidlock');
+var sleep = require("sleep");
+while(1) {
+//console.log('Syncing locations');
+pidlock.guard('/tmp', 'limologixpidlockfilednt', function(error, data, cleanup) {
+  if (!error) {
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'limostag_dbuser',
@@ -41,3 +47,11 @@ db.select(1, function(err,res) {
 require('deasync').loopWhile(() => {return busy;});
 connection.end();
 db.quit();
+  cleanup();
+  } else {
+    //console.log("Another instance is already running.");
+  }
+});
+//console.log('Going to sleep.');
+sleep.sleep(5);
+}
