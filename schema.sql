@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `drivers`
 --
 
-CREATE TABLE IF NOT EXISTS `drivers` (
+CREATE TABLE IF NOT EXISTS `drivers_redis` (
   `driver_id` varchar(255) NOT NULL,
   `latlon` point NOT NULL,
   `timestamp` bigint(20) NOT NULL,
