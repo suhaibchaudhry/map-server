@@ -9,8 +9,8 @@ var connection = mysql.createConnection({
 var _ = require('lodash');
 
 /* Query Samples */
-/*INSERT INTO `drivergeo`.`drivers_redis` (`driver_id`, `latlon`, `timestamp`) VALUES ('1', GeomFromText('POINT(13.02169401981124 77.64023683648082)',0), 1);*/
-/*SELECT X(latlon), Y(latlon) FROM `drivers`*/
+/*INSERT INTO drivers_redis (`driver_id`, `latlon`, `timestamp`) VALUES ('1', GeomFromText('POINT(13.02169401981124 77.64023683648082)',0), 1);*/
+/*SELECT X(latlon), Y(latlon) FROM drivers_redis*/
 
 connection.connect();
 
